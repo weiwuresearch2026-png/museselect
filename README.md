@@ -1,6 +1,6 @@
 # MuSeSelect
 
-Official research-preview code for **Stress-Testing Prospective Multimodal
+Official research-preview code for **Stress Testing Prospective Multimodal
 Dataset Utility Prediction** (under review for ICLR 2027).
 
 MuSeSelect asks a deliberately prospective question: can an audio and text source

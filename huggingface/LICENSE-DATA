@@ -13,11 +13,10 @@ Legal code:
 https://creativecommons.org/licenses/by/4.0/legalcode.en
 
 Attribution should identify “MuSeSelect Authors” and the work
-“Stress-Testing Prospective Multimodal Dataset Utility Prediction,” and should
+“Stress Testing Prospective Multimodal Dataset Utility Prediction,” and should
 include a link to the public repository where reasonably practicable.
 
 This license applies only to original aggregate material in this directory. It
 does not apply to CMU-MOSI, CMU-MOSEI, CH-SIMS, MELD, pretrained models, or any
 other third-party content. No third-party media, transcripts, labels, or
 per-example embeddings are redistributed here.
-
