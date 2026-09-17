@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MuSeSelect | Paper-to-code map</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">M</span><span>MuSeSelect</span></a>
+    <nav><a href="index.html">Back to project page</a></nav>
+  </header>
+  <main>
+    <section class="section map-page">
+      <p class="section-number">Public artifact</p>
+      <h1>Paper-to-code map</h1>
+      <p class="dek">The release exposes the paper-facing method boundary, not the complete private research workspace.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Paper concept</th><th>Public module</th><th>Released behavior</th></tr></thead>
+          <tbody>
+            <tr><td>Utility definition</td><td><code>museselect.evaluation</code></td><td>Mean seeded validation macro-F1 change</td></tr>
+            <tr><td>Information boundary</td><td><code>museselect.boundary</code></td><td>Rejects outcome, validation, test, and oracle fields</td></tr>
+            <tr><td>Static signatures</td><td><code>museselect.signatures</code></td><td>Centroid distances, paired CKA gap, size, missingness</td></tr>
+            <tr><td>Frozen predictions</td><td><code>museselect.selection</code></td><td>Immutable selection record and deterministic digest</td></tr>
+            <tr><td>Sealed evaluation</td><td><code>museselect.evaluation</code></td><td>Utility, regret, harm, coverage, Kendall tau</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="provenance-note">Raw media, per-example embeddings, full learner training loops, private analysis logs, and unpublished experiments are excluded.</p>
+    </section>
+  </main>
+  <footer><span>MuSeSelect research preview</span><span>Anonymous ICLR 2027 submission</span></footer>
+</body>
+</html>

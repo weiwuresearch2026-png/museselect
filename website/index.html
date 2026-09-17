@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MuSeSelect studies prospective, model-conditional utility prediction for audio-text datasets under a sealed evaluation protocol.">
+  <meta name="theme-color" content="#f6f4ef">
+  <title>MuSeSelect | Prospective Multimodal Dataset Utility</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="MuSeSelect home">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span>MuSeSelect</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#problem">Problem</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#release">Release</a>
+      <a href="#citation">Citation</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Anonymous ICLR 2027 submission</p>
+        <h1>Stress-Testing Prospective Multimodal Dataset Utility Prediction</h1>
+        <p class="dek">Can we screen audio–text training sources before paying
+          the cost of training on them? MuSeSelect tests that premise under a
+          strict information boundary—and finds that corpus routing is easier
+          than ranking nearby buckets.</p>
+        <p class="authors">Anonymous authors</p>
+        <div class="actions">
+          <a class="button primary" href="assets/paper-anonymous.pdf">Paper PDF</a>
+          <a class="button" data-release-link="code" aria-disabled="true">Code pending</a>
+          <a class="button" data-release-link="data" aria-disabled="true">Data pending</a>
+        </div>
+      </div>
+      <aside class="hero-note" aria-label="Research question">
+        <span class="note-index">01</span>
+        <p>Prediction is frozen before candidate transfer outcomes or target-validation labels are revealed.</p>
+      </aside>
+    </section>
+
+    <section class="metrics" aria-label="Headline findings">
+      <article><strong>44 / 45</strong><span>logistic source routes match the oracle</span></article>
+      <article><strong>3</strong><span>independent main-panel target corpora</span></article>
+      <article><strong>4</strong><span>matched downstream learner families</span></article>
+      <article><strong>0</strong><span>nonvacuous calibrated rejection thresholds found</span></article>
+    </section>
+
+    <section id="problem" class="section two-column">
+      <div>
+        <p class="section-number">01 — Problem</p>
+        <h2>Dataset quality is not a property of the dataset alone.</h2>
+      </div>
+      <div class="prose">
+        <p>Utility depends jointly on the candidate source, target task,
+          downstream learner, training recipe, and evaluation metric. A clean
+          dataset can still be harmful for a particular target. A score computed
+          from the eventual transfer outcome arrives too late to save compute.</p>
+        <p>We therefore distinguish source routing, within-source bucket ranking,
+          and selective abstention. Each decision is evaluated only after its
+          prediction has been sealed.</p>
+      </div>
+    </section>
+
+    <section id="method" class="section figure-section">
+      <div class="section-heading">
+        <p class="section-number">02 — Protocol</p>
+        <h2>A visible boundary between evidence and evaluation.</h2>
+        <p>The selector sees candidate data, target-training anchors, model
+          metadata, and low-cost signatures. Realized utility, validation labels,
+          and test data stay sealed.</p>
+      </div>
+      <figure class="paper-figure wide">
+        <img src="assets/method-overview.png" alt="Diagram separating selection-time evidence, frozen decisions, and sealed evaluation outcomes." loading="lazy">
+        <figcaption>Figure 1. Information boundary and evaluation flow.</figcaption>
+      </figure>
+      <div class="method-grid">
+        <article><span>Route</span><h3>Choose a source</h3><p>Compare corpus-level compatibility using common frozen representations.</p></article>
+        <article><span>Rank</span><h3>Order its buckets</h3><p>Ask whether the same evidence resolves smaller, more similar candidate blocks.</p></article>
+        <article><span>Decide</span><h3>Select or abstain</h3><p>Calibrate rejection on independent targets without opening held-out utilities.</p></article>
+      </div>
+    </section>
+
+    <section id="results" class="section results-section">
+      <div class="section-heading compact">
+        <p class="section-number">03 — Findings</p>
+        <h2>The strongest result is also the narrowest one.</h2>
+        <p>Centroid distance routes sources reliably for one fixed logistic
+          recipe. It does not establish reliable within-source utility ordering,
+          and its behavior changes with the downstream learner.</p>
+      </div>
+      <div class="result-cards">
+        <article class="result-card good">
+          <p class="card-label">What held</p>
+          <strong>97.8%</strong>
+          <h3>Logistic source-route accuracy</h3>
+          <p>44 of 45 repeated decisions, covering three independent target corpora.</p>
+        </article>
+        <article class="result-card caution">
+          <p class="card-label">What did not</p>
+          <strong>+0.00105</strong>
+          <h3>Classifier gain over Curve-19</h3>
+          <p>The target-cluster interval crosses zero and the exact p-value is 0.50.</p>
+        </article>
+        <article class="result-card caution">
+          <p class="card-label">Why conditioning matters</p>
+          <strong>53.3–80.0%</strong>
+          <h3>Alternative-learner route range</h3>
+          <p>Gated fusion, GaussianNB, and neural MLP alter routes and utility prevalence.</p>
+        </article>
+      </div>
+      <div class="figure-pair">
+        <figure class="paper-figure">
+          <img src="assets/cross-model-shift.png" alt="Cross-model comparison showing route accuracy and positive candidate prevalence." loading="lazy">
+          <figcaption>Matched learners expose model dependence.</figcaption>
+        </figure>
+        <figure class="paper-figure">
+          <img src="assets/safety-calibration.png" alt="Safety calibration plot showing coverage and harm trade-offs." loading="lazy">
+          <figcaption>Independent calibration finds no useful safe threshold.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="release" class="section release-section">
+      <div>
+        <p class="section-number">04 — Public artifact</p>
+        <h2>Enough code to audit the claim, not a dump of the lab workspace.</h2>
+      </div>
+      <div class="release-grid">
+        <article>
+          <h3>GitHub</h3>
+          <p>Information-boundary types, static signatures, frozen decisions,
+            post-freeze metrics, synthetic examples, and tests.</p>
+          <a data-release-link="code" aria-disabled="true">Repository pending →</a>
+        </article>
+        <article>
+          <h3>Hugging Face</h3>
+          <p>Paper-level aggregate tables, corpus provenance, and a synthetic
+            schema example. No raw media or transcript is redistributed.</p>
+          <a data-release-link="data" aria-disabled="true">Dataset pending →</a>
+        </article>
+        <article>
+          <h3>Reproducibility boundary</h3>
+          <p>The public code reproduces method definitions and reporting schemas.
+            Full experiments still require official third-party datasets.</p>
+          <a href="paper-code-map.html">Paper–code map →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="citation" class="section citation-section">
+      <div>
+        <p class="section-number">05 — Citation</p>
+        <h2>Anonymous during review.</h2>
+      </div>
+      <div>
+        <pre><code>@inproceedings{anonymous2027museselect,
+  title  = {Stress-Testing Prospective Multimodal
+            Dataset Utility Prediction},
+  author = {Anonymous Authors},
+  booktitle = {Submitted to ICLR},
+  year   = {2027}
+}</code></pre>
+        <button class="copy-button" type="button" data-copy-citation>Copy BibTeX</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>MuSeSelect research preview</span>
+    <span>Last synchronized with the manuscript: 17 September 2026</span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

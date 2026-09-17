@@ -1,0 +1,12 @@
+name: museselect-public
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy=1.26
+  - scipy=1.14
+  - pytest=8.3
+  - pip
+  - pip:
+      - -e .
+

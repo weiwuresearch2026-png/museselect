@@ -1,0 +1,6 @@
+corpus,modalities,paper_role,official_access,redistributed_here,redistribution_note
+CMU-MOSI,audio|text|video,main target and source,https://github.com/CMU-MultiComp-Lab/CMU-MultimodalSDK,false,Obtain from the official provider and follow upstream terms
+CMU-MOSEI,audio|text|video,auxiliary text-only panel,https://github.com/CMU-MultiComp-Lab/CMU-MultimodalSDK,false,Obtain from the official provider and follow upstream terms
+CH-SIMS,audio|text|video,main target and source,https://thuiar.github.io/publication/chsims/,false,Obtain from the official provider and follow upstream terms
+MELD,audio|text|video,main target and source,https://github.com/declare-lab/MELD,false,Obtain from the official provider and follow upstream terms
+

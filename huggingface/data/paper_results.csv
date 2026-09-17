@@ -1,0 +1,12 @@
+panel,learner,rule,decisions,mean_utility,positive_rate_percent,harm_rate_percent,top1_regret,route_accuracy_percent,posthoc
+main,Logistic regression,Positive-utility classifier,45,0.00178,51.1,48.9,0.01727,97.8,false
+main,Logistic regression,Curve-19,45,0.00073,40.0,60.0,0.01832,97.8,false
+main,Logistic regression,Uniform random,45,0.00077,43.1,56.9,0.01810,97.8,true
+main,Logistic regression,Size-only,45,-0.00050,40.8,59.2,0.01937,97.8,true
+matched,GaussianNB,Positive-utility classifier,15,-0.03734,0.0,100.0,0.02773,66.7,false
+matched,GaussianNB,Curve-19,15,-0.03744,0.0,100.0,0.02783,66.7,false
+matched,Neural MLP,Positive-utility classifier,15,0.00755,73.3,26.7,0.01405,80.0,false
+matched,Neural MLP,Curve-19,15,0.00486,66.7,33.3,0.01674,80.0,false
+matched,Gated fusion,Positive-utility classifier,15,-0.00027,46.7,53.3,0.02075,53.3,false
+matched,Gated fusion,Curve-19,15,-0.00413,26.7,73.3,0.02460,53.3,false
+

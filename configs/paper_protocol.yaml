@@ -1,0 +1,30 @@
+artifact_status: anonymous_iclr_2027_submission
+task: audio_text_sentiment_and_emotion
+selection_boundary:
+  allowed:
+    - candidate_audio_text_representations
+    - target_training_anchors
+    - learner_metadata
+    - static_aggregate_signatures
+  forbidden:
+    - candidate_transfer_outcomes
+    - target_validation_labels
+    - target_test_data
+candidate_block_max_examples: 512
+target_anchor_examples: 256
+utility:
+  metric: validation_macro_f1_change
+  seeds_per_candidate: 5
+representations:
+  text: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  audio: openai/whisper-tiny
+decisions:
+  - source_route
+  - within_source_bucket_rank
+  - select_or_abstain
+public_release:
+  raw_media_included: false
+  cached_embeddings_included: false
+  full_training_pipeline_included: false
+  aggregate_paper_results_included: true
+

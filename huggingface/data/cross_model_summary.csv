@@ -1,0 +1,5 @@
+comparison,candidate_kendall_tau,source_stratified_kendall_tau,utility_sign_agreement_percent,positive_candidates_percent,logistic_positive_candidates_percent
+Logistic vs GaussianNB,0.4222,0.3190,71.67,3.75,28.75
+Logistic vs Neural MLP,0.3183,0.1619,67.92,51.67,28.75
+Logistic vs Gated fusion,0.3503,0.1452,63.75,45.00,28.75
+

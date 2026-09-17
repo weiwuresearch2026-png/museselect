@@ -1,0 +1,30 @@
+[
+  {
+    "candidate_id": "source_a::bucket_0",
+    "source_id": "source_a",
+    "audio_centroid_distance": 0.31,
+    "text_centroid_distance": 0.18,
+    "interaction_gap": 0.07,
+    "log_size": 5.55,
+    "missing_rate": 0.0
+  },
+  {
+    "candidate_id": "source_a::bucket_1",
+    "source_id": "source_a",
+    "audio_centroid_distance": 0.27,
+    "text_centroid_distance": 0.22,
+    "interaction_gap": 0.05,
+    "log_size": 5.55,
+    "missing_rate": 0.0
+  },
+  {
+    "candidate_id": "source_b::bucket_0",
+    "source_id": "source_b",
+    "audio_centroid_distance": 0.46,
+    "text_centroid_distance": 0.33,
+    "interaction_gap": 0.11,
+    "log_size": 5.12,
+    "missing_rate": 0.02
+  }
+]
+
