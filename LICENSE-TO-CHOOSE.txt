@@ -1,6 +1,0 @@
-PUBLICATION BLOCKER
-
-Before this repository is made public, the copyright holder must replace this
-file with an approved LICENSE file (for example, MIT or Apache-2.0). No license
-is inferred from the DataProphet reference repository or from this draft.
-

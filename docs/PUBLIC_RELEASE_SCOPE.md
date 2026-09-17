@@ -34,7 +34,7 @@ Before public upload, the authors must supply:
 1. GitHub owner/organization and final repository name;
 2. Hugging Face owner/organization and dataset name;
 3. website host or GitHub Pages repository;
-4. approved software and aggregate-data licenses;
+4. confirmation that MIT for software and CC BY 4.0 for original aggregate
+   data remain appropriate;
 5. public author names and archival paper URL, or an explicit decision to keep
    the artifact anonymous during review.
-

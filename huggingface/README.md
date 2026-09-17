@@ -1,6 +1,6 @@
 ---
 pretty_name: MuSeSelect Paper Aggregate Artifact
-license: other
+license: cc-by-4.0
 language:
 - en
 task_categories:
@@ -93,9 +93,10 @@ support a narrow, model-conditional interpretation.
 
 ## Licensing
 
-The aggregate-artifact license has not yet been selected. `license: other` is
-intentional and must be replaced before public publication. Upstream dataset
-terms remain controlling and are not modified by this repository.
+Original aggregate tables, registry metadata, and synthetic examples in this
+package are released under CC BY 4.0; see `LICENSE-DATA`. Upstream dataset terms
+remain controlling and are not modified by this repository. No third-party raw
+media, transcripts, labels, or per-example embeddings are relicensed here.
 
 ## Citation
 

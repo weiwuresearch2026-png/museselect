@@ -96,13 +96,12 @@ datasets from their official providers and comply with their terms.
 
 ## Repository scope and licensing
 
-Read [PUBLIC_RELEASE_SCOPE.md](docs/PUBLIC_RELEASE_SCOPE.md) before publishing or
-extending this artifact. A copyright holder and license must be selected before
-the repository is made public; the release preflight intentionally fails while
-`LICENSE-TO-CHOOSE.txt` remains present.
+Read [PUBLIC_RELEASE_SCOPE.md](docs/PUBLIC_RELEASE_SCOPE.md) before extending this
+artifact. The software is released under the MIT License. Original aggregate
+tables and metadata under `huggingface/` are released under CC BY 4.0; upstream
+dataset terms remain controlling for all third-party materials.
 
 ## Citation
 
 Citation metadata will be added after author identities and the archival paper
 URL are public. Until then, cite the anonymous ICLR 2027 submission title.
-

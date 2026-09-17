@@ -27,7 +27,7 @@ FORBIDDEN_PATTERNS = {
 }
 BLOCKERS = {
     "LICENSE-TO-CHOOSE.txt": "software/data license is not selected",
-    "website/config.js": "release URLs may still be empty",
+    "website/config.js": "required GitHub or website URL is empty",
 }
 
 
@@ -79,6 +79,9 @@ def audit_scope() -> list[str]:
     for path in ROOT.rglob("*"):
         if path.is_file() and path.suffix.lower() in forbidden_suffixes:
             failures.append(f"forbidden public binary: {path.relative_to(ROOT)}")
+    for required_license in (ROOT / "LICENSE", ROOT / "huggingface/LICENSE-DATA"):
+        if not required_license.exists():
+            failures.append(f"missing license file: {required_license.relative_to(ROOT)}")
     return failures
 
 
@@ -141,7 +144,7 @@ def publication_blockers() -> list[str]:
     if (ROOT / "LICENSE-TO-CHOOSE.txt").exists():
         failures.append(BLOCKERS["LICENSE-TO-CHOOSE.txt"])
     config = (ROOT / "website/config.js").read_text(encoding="utf-8")
-    if config.count(': ""') >= 1:
+    if 'codeUrl: ""' in config or 'websiteUrl: ""' in config:
         failures.append(BLOCKERS["website/config.js"])
     return failures
 
