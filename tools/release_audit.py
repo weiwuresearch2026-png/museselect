@@ -102,7 +102,7 @@ def audit_website() -> list[str]:
     website = ROOT / "website"
     index = website / "index.html"
     content = index.read_text(encoding="utf-8")
-    required_claims = ["44 / 45", "97.8%", "+0.00105", "53.3–80.0%"]
+    required_claims = ["44 / 45", "22.33×", "54.17% → 3.75%", "87.5%"]
     for claim in required_claims:
         if claim not in content:
             failures.append(f"website missing synchronized claim: {claim}")

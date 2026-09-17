@@ -1,0 +1,10 @@
+analysis,setting,result,comparison
+distance_scale,between_source_gap_to_within_source_spread,22.33,split_half_source_route_15_of_15
+bucket_distance,raw_kendall_tau,0.0048,split_half_tau_-0.1524
+bucket_distance,equal_size_kendall_tau,-0.0095,candidate_size_control
+bucket_distance,class_balanced_kendall_tau,-0.0381,label_mixture_control
+gaussian_nb,text_positive_fraction,0.5417,audio_positive_fraction_0
+gaussian_nb,fusion_positive_fraction,0.0375,smoothing_range_0.033_to_0.050
+gate_route,fixed_equal,0.7333,11_of_15
+gate_route,learned_global,0.6667,10_of_15
+gate_route,sample_dependent,0.5333,8_of_15

@@ -26,17 +26,18 @@
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Anonymous ICLR 2027 submission</p>
+        <p class="eyebrow">ICLR 2027 author preprint</p>
         <h1>Stress-Testing Prospective Multimodal Dataset Utility Prediction</h1>
         <p class="dek">Can we screen audio–text training sources before paying
-          the cost of training on them? MuSeSelect tests that premise under a
-          strict information boundary—and finds that corpus routing is easier
-          than ranking nearby buckets.</p>
-        <p class="authors">Anonymous authors</p>
+          the cost of training on every candidate? MuSeSelect finds a sharp
+          resolution limit: cheap geometry identifies the right source corpus,
+          but cannot reliably order nearby buckets inside it. A staged shortlist
+          preserves most of the useful gain while avoiding most candidate runs.</p>
+        <p class="authors">Yurong Cheng · Wei Wu — Beijing Institute of Technology</p>
         <div class="actions">
           <a class="button primary" href="assets/paper-author.pdf">Paper PDF</a>
-          <a class="button" data-release-link="code" aria-disabled="true">Code pending</a>
-          <a class="button" data-release-link="data" aria-disabled="true">Data pending</a>
+          <a class="button" data-release-link="code" aria-disabled="true">GitHub Code</a>
+          <a class="button" href="paper-code-map.html">Paper–code map</a>
         </div>
       </div>
       <aside class="hero-note" aria-label="Research question">
@@ -47,9 +48,9 @@
 
     <section class="metrics" aria-label="Headline findings">
       <article><strong>44 / 45</strong><span>logistic source routes match the oracle</span></article>
-      <article><strong>3</strong><span>independent main-panel target corpora</span></article>
-      <article><strong>4</strong><span>matched downstream learner families</span></article>
-      <article><strong>0</strong><span>nonvacuous calibrated rejection thresholds found</span></article>
+      <article><strong>22.33×</strong><span>source gap relative to within-source bucket spread</span></article>
+      <article><strong>11 → 8</strong><span>correct routes from fixed to sample-wise gating</span></article>
+      <article><strong>87.5%</strong><span>candidate runs avoided by the top-2 shortlist</span></article>
     </section>
 
     <section id="problem" class="section two-column">
@@ -90,29 +91,30 @@
     <section id="results" class="section results-section">
       <div class="section-heading compact">
         <p class="section-number">03 — Findings</p>
-        <h2>The strongest result is also the narrowest one.</h2>
+        <h2>A useful screening signal has a measurable resolution limit.</h2>
         <p>Centroid distance routes sources reliably for one fixed logistic
-          recipe. It does not establish reliable within-source utility ordering,
-          and its behavior changes with the downstream learner.</p>
+          recipe because between-source separation dominates bucket variation.
+          The same signal becomes uninformative inside a source, while modality
+          imbalance and sample-wise gating explain further route failures.</p>
       </div>
       <div class="result-cards">
         <article class="result-card good">
-          <p class="card-label">What held</p>
-          <strong>97.8%</strong>
-          <h3>Logistic source-route accuracy</h3>
-          <p>44 of 45 repeated decisions, covering three independent target corpora.</p>
+          <p class="card-label">Scale separation</p>
+          <strong>22.33×</strong>
+          <h3>Source gap over bucket spread</h3>
+          <p>Source routes remain stable across split halves, while equal-size and class-balanced buckets still have near-zero or negative rank correlation.</p>
         </article>
         <article class="result-card caution">
-          <p class="card-label">What did not</p>
-          <strong>+0.00105</strong>
-          <h3>Classifier gain over Curve-19</h3>
-          <p>The target-cluster interval crosses zero and the exact p-value is 0.50.</p>
+          <p class="card-label">Modality conflict</p>
+          <strong>54.17% → 3.75%</strong>
+          <h3>GaussianNB positive candidates</h3>
+          <p>Text-only candidates are often beneficial, but audio is negative on average and equal fusion suppresses the positive set.</p>
         </article>
         <article class="result-card caution">
-          <p class="card-label">Why conditioning matters</p>
-          <strong>53.3–80.0%</strong>
-          <h3>Alternative-learner route range</h3>
-          <p>Gated fusion, GaussianNB, and neural MLP alter routes and utility prevalence.</p>
+          <p class="card-label">Actionable compromise</p>
+          <strong>Top 2</strong>
+          <h3>Route first, probe second</h3>
+          <p>The staged shortlist attains +0.00971 mean selected utility, with 26.7% harm and 87.5% fewer candidate runs than exhaustive evaluation.</p>
         </article>
       </div>
       <div class="figure-pair">
@@ -135,15 +137,15 @@
       <div class="release-grid">
         <article>
           <h3>GitHub</h3>
-          <p>Information-boundary types, static signatures, frozen decisions,
-            post-freeze metrics, synthetic examples, and tests.</p>
-          <a data-release-link="code" aria-disabled="true">Repository pending →</a>
+          <p>Information-boundary types, static signatures, adapted LEEP and
+            LogME probes, staged shortlist logic, aggregate results, and tests.</p>
+          <a data-release-link="code" aria-disabled="true">Open repository →</a>
         </article>
         <article>
-          <h3>Hugging Face</h3>
-          <p>Paper-level aggregate tables, corpus provenance, and a synthetic
-            schema example. No raw media or transcript is redistributed.</p>
-          <a data-release-link="data" aria-disabled="true">Dataset pending →</a>
+          <h3>Aggregate evidence</h3>
+          <p>Mechanism checks and practical shortlist results are released as
+            compact CSV tables. Raw media and transcripts are not redistributed.</p>
+          <a href="https://github.com/weiwuresearch2026-png/museselect/tree/main/results">Browse result tables →</a>
         </article>
         <article>
           <h3>Reproducibility boundary</h3>
@@ -157,13 +159,13 @@
     <section id="citation" class="section citation-section">
       <div>
         <p class="section-number">05 — Citation</p>
-        <h2>Anonymous during review.</h2>
+        <h2>Cite the author preprint.</h2>
       </div>
       <div>
-        <pre><code>@inproceedings{anonymous2027museselect,
+        <pre><code>@inproceedings{cheng2027museselect,
   title  = {Stress-Testing Prospective Multimodal
             Dataset Utility Prediction},
-  author = {Anonymous Authors},
+  author = {Cheng, Yurong and Wu, Wei},
   booktitle = {Submitted to ICLR},
   year   = {2027}
 }</code></pre>
@@ -173,7 +175,7 @@
   </main>
 
   <footer>
-    <span>MuSeSelect research preview</span>
+    <span>MuSeSelect author preprint</span>
     <span>Last synchronized with the manuscript: 17 September 2026</span>
   </footer>
 

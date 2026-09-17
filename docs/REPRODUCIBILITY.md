@@ -13,9 +13,18 @@ museselect examples/candidates.json examples/frozen_decisions.json
 The command writes a timestamped freeze record; its SHA-256 decision digest is
 deterministic for a fixed target, learner, candidate set, and score vector.
 
+The public package also exposes the exact LEEP and fixed-point LogME scoring
+equations used after candidate heads have been fitted. Candidate fitting is
+deliberately outside the public interface, so these functions do not imply that
+the probes are training free. The staged workflow first averages centroid
+compatibility at source level and then keeps the top-k probe-ranked buckets
+within the routed source.
+
 Reproducing paper numbers additionally requires the official source datasets,
 their permitted representations, and the sealed downstream evaluation recipes.
 Those are not redistributed by this artifact. Aggregate tables are provided for
 verification of reporting consistency, not as a substitute for the underlying
 licensed data.
 
+The aggregate mechanism and shortlist summaries in `results/` can be checked
+against the manuscript without opening raw data or per-example outcomes.

@@ -3,7 +3,7 @@
 Official research-preview code for **Stress-Testing Prospective Multimodal
 Dataset Utility Prediction** (under review for ICLR 2027).
 
-MuSeSelect asks a deliberately prospective question: can an audio--text source
+MuSeSelect asks a deliberately prospective question: can an audio and text source
 be screened for a fixed target task and learner *before* its transfer outcome is
 known? The paper separates three decisions that are often conflated:
 
@@ -17,9 +17,9 @@ evaluation metrics, a synthetic example, and tests. It intentionally excludes
 the private research pipeline, raw corpora, cached embeddings, dataset download
 automation, and unreleased analysis notebooks.
 
-> **Status.** This is an anonymous submission artifact, not a claim of ICLR
-> acceptance. Author, paper, GitHub, and Hugging Face URLs remain release-time
-> metadata until anonymity is lifted.
+> **Status.** This is a public author preprint and research preview, not a claim
+> of ICLR acceptance. The authors are Yurong Cheng and Wei Wu, Beijing Institute
+> of Technology. Yurong Cheng is the corresponding author.
 
 ## What is implemented
 
@@ -28,6 +28,8 @@ automation, and unreleased analysis notebooks.
   utility.
 - A deterministic source-routing baseline and immutable freeze record.
 - Post-freeze utility, regret, harm, coverage, and rank-correlation evaluation.
+- Public LEEP and LogME scoring equations for candidate-trained head outputs.
+- A staged source-routing and probe-shortlist interface.
 - Schema validation for synthetic or user-supplied aggregate candidate records.
 
 The complete learner training loops and learned selectors are not included.
@@ -76,23 +78,31 @@ recorded in [PAPER_CODE_MAP.md](docs/PAPER_CODE_MAP.md). In brief:
 | Prospective information boundary | `museselect.boundary` |
 | Static source--target signatures | `museselect.signatures` |
 | Frozen source routing / decisions | `museselect.selection` |
+| Candidate-trained LEEP / LogME scores | `museselect.probes` |
+| Route-then-shortlist workflow | `museselect.workflow` |
 | Realized utility and regret | `museselect.evaluation` |
 
 ## Main empirical conclusion
 
 The release preserves the paper's deliberately narrow conclusion. Under the
-fixed logistic-regression recipe, source routing is stable over repeated
-decisions, but within-source bucket ordering and nonvacuous calibrated
-abstention are not reliable. Matched alternative learners change the utility
-prevalence, rankings, and source routes. The project therefore does **not** claim
-that a single learner-agnostic scalar measures universal dataset quality.
+fixed logistic regression recipe, source routing is stable over repeated
+decisions, but bucket ordering within a source and nonvacuous calibrated
+abstention are not reliable. The source distance gap is 22.33 times the typical
+bucket spread on the sealed safety family. Matched gate controls reduce route
+accuracy from 11/15 with fixed weights to 8/15 with a sample-dependent gate.
+
+Canonical LEEP and LogME do not directly rank additive buckets under a shared
+fixed representation. Their candidate-trained adaptations are reported in a
+separate cost class. Distance routing followed by adapted LEEP gives mean
+selected utility +0.00497. Exact pilots of its top two buckets give +0.00971
+mean utility while avoiding 87.5% of full candidate runs. Aggregate tables are
+available in [`results/`](results/).
 
 ## Data
 
-Raw CMU-MOSI, CMU-MOSEI, CH-SIMS, and MELD media are not redistributed. The
-companion Hugging Face package contains only paper-level aggregate tables,
-provenance metadata, and synthetic schema examples. Users must obtain source
-datasets from their official providers and comply with their terms.
+Raw CMU-MOSI, CMU-MOSEI, CH-SIMS, and MELD media are not redistributed. Users
+must obtain source datasets from their official providers and comply with their
+terms. A Hugging Face release is intentionally deferred.
 
 ## Repository scope and licensing
 
@@ -103,5 +113,11 @@ dataset terms remain controlling for all third-party materials.
 
 ## Citation
 
-Citation metadata will be added after author identities and the archival paper
-URL are public. Until then, cite the anonymous ICLR 2027 submission title.
+```bibtex
+@misc{cheng2026museselect,
+  title  = {Stress Testing Prospective Multimodal Dataset Utility Prediction},
+  author = {Yurong Cheng and Wei Wu},
+  year   = {2026},
+  note   = {ICLR 2027 submission, author preprint}
+}
+```

@@ -32,8 +32,9 @@ configs:
 
 # MuSeSelect paper aggregate artifact
 
-Companion metadata for **Stress-Testing Prospective Multimodal Dataset Utility
-Prediction** (anonymous ICLR 2027 submission).
+Prepared companion metadata for **Stress-Testing Prospective Multimodal Dataset
+Utility Prediction** by Yurong Cheng and Wei Wu. This directory is retained for
+audit; a standalone Hugging Face release has not yet been published.
 
 This repository is **not** a redistribution of CMU-MOSI, CMU-MOSEI, CH-SIMS,
 or MELD. It contains only:
@@ -100,6 +101,11 @@ media, transcripts, labels, or per-example embeddings are relicensed here.
 
 ## Citation
 
-Final BibTeX will be supplied after author identities and the archival paper URL
-are public. During anonymous review, cite the paper title and “Anonymous authors,
-ICLR 2027 submission.”
+```bibtex
+@inproceedings{cheng2027museselect,
+  title = {Stress-Testing Prospective Multimodal Dataset Utility Prediction},
+  author = {Cheng, Yurong and Wu, Wei},
+  booktitle = {Submitted to ICLR},
+  year = {2027}
+}
+```

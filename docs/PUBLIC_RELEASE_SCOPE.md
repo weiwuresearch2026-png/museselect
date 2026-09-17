@@ -23,18 +23,16 @@
 ## Why the release is partial
 
 The public surface is designed to audit the paper's method while respecting
-third-party dataset terms and preserving a manageable anonymous artifact. The
+third-party dataset terms and preserving a manageable public artifact. The
 README must never imply that omitted licensed data can be reconstructed from the
 repository.
 
-## Publication blockers
+## Publication status
 
-Before public upload, the authors must supply:
+The GitHub repository and GitHub Pages site are live. Software is licensed under
+MIT and original aggregate data under CC BY 4.0. Author metadata is public in
+the author preprint.
 
-1. GitHub owner/organization and final repository name;
-2. Hugging Face owner/organization and dataset name;
-3. website host or GitHub Pages repository;
-4. confirmation that MIT for software and CC BY 4.0 for original aggregate
-   data remain appropriate;
-5. public author names and archival paper URL, or an explicit decision to keep
-   the artifact anonymous during review.
+The standalone Hugging Face dataset release is intentionally deferred. The
+prepared dataset-card directory remains in this repository for audit and must
+not be described as a live Hugging Face publication.
