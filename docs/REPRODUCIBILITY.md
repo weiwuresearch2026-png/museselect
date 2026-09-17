@@ -17,8 +17,12 @@ The public package also exposes the exact LEEP and fixed-point LogME scoring
 equations used after candidate heads have been fitted. Candidate fitting is
 deliberately outside the public interface, so these functions do not imply that
 the probes are training free. The staged workflow first averages centroid
-compatibility at source level and then keeps the top-k probe-ranked buckets
-within the routed source.
+distance at source level, then ranks buckets only inside the routed source.
+The paper's final workflow result comes from a fresh repartition prefix whose
+route, adapted LEEP ranking, shortlist sizes, fallback, and success criterion
+were frozen before its utility artifact was generated. The public repository
+reports aggregate results; the anonymous review supplement carries the full
+pipeline and chronological artifact audit.
 
 Reproducing paper numbers additionally requires the official source datasets,
 their permitted representations, and the sealed downstream evaluation recipes.

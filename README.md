@@ -94,9 +94,12 @@ accuracy from 11/15 with fixed weights to 8/15 with a sample-dependent gate.
 Canonical LEEP and LogME do not directly rank additive buckets under a shared
 fixed representation. Their candidate-trained adaptations are reported in a
 separate cost class. Distance routing followed by adapted LEEP gives mean
-selected utility +0.00497. Exact pilots of its top two buckets give +0.00971
-mean utility while avoiding 87.5% of full candidate runs. Aggregate tables are
-available in [`results/`](results/).
+selected utility +0.00497 on the exploratory safety family. We then froze the
+complete workflow before evaluating a new repartition family. Its top-two rule
+gives +0.01084 mean safe utility, with a target-and-salt bootstrap interval of
+[+0.00293, +0.01957], while avoiding 87.5% of full candidate runs. The result
+contains only three independent target corpora and is not evidence of unseen
+domain generalization. Aggregate tables are available in [`results/`](results/).
 
 ## Data
 

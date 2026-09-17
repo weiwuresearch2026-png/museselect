@@ -1,7 +1,8 @@
-method,scope,mean_selected_utility,top1_regret,harm_rate,full_candidate_runs_saved
-adapted_leep,flat,-0.01540,0.03248,0.6667,0
-adapted_leep,distance_routed,0.00497,0.01211,0.4667,0
-source_head_logme,flat,-0.00350,0.02058,0.5333,0
-source_head_logme,distance_routed,-0.00092,0.01799,0.5333,0
-leep_exact_pilot,top_2,0.00971,,0.2667,0.875
-leep_exact_pilot,top_4,0.01435,,0.1333,0.750
+method,scope,evidence_family,mean_selected_utility,top1_regret,harm_rate,full_candidate_runs_saved
+adapted_leep,flat,exploratory_safety,-0.01540,0.03248,0.6667,0
+adapted_leep,distance_routed,exploratory_safety,0.00497,0.01211,0.4667,0
+source_head_logme,flat,exploratory_safety,-0.00350,0.02058,0.5333,0
+source_head_logme,distance_routed,exploratory_safety,-0.00092,0.01799,0.5333,0
+adapted_leep,direct_top_1,fresh_workflow_confirmation,0.00272,0.01229,0.3333,0.9375
+leep_exact_pilot,top_2_with_fallback,fresh_workflow_confirmation,0.01084,0.00417,0.0667,0.875
+leep_exact_pilot,top_4_with_fallback,fresh_workflow_confirmation,0.01320,0.00181,0.0000,0.750
