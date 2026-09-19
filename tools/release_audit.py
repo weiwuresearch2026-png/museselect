@@ -87,8 +87,8 @@ def audit_results() -> list[str]:
 
 def audit_author_metadata() -> list[str]:
     title = (
-        "Prospective Multimodal Data Selection: A Stress Test Across "
-        "Granularity and Learners"
+        "Before Training, Which Multimodal Data Will Help? Resolution Limits "
+        "Across Granularities and Learners"
     )
     paths = [
         ROOT / "LICENSE",

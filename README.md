@@ -1,7 +1,8 @@
 # MuSeSelect
 
-Official research-preview code for **Prospective Multimodal Data Selection: A
-Stress Test Across Granularity and Learners** (under review for ICLR 2027).
+Official research-preview code for **Before Training, Which Multimodal Data
+Will Help? Resolution Limits Across Granularities and Learners** (under review
+for ICLR 2027).
 
 MuSeSelect asks a deliberately prospective question: can an audio and text source
 be screened for a fixed target task and learner *before* its transfer outcome is
@@ -118,7 +119,7 @@ dataset terms remain controlling for all third-party materials.
 
 ```bibtex
 @misc{wu2026museselect,
-  title  = {Prospective Multimodal Data Selection: A Stress Test Across Granularity and Learners},
+  title  = {Before Training, Which Multimodal Data Will Help? Resolution Limits Across Granularities and Learners},
   author = {Wei Wu},
   year   = {2026},
   note   = {ICLR 2027 submission, author preprint}

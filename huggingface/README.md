@@ -32,10 +32,10 @@ configs:
 
 # MuSeSelect paper aggregate artifact
 
-Prepared companion metadata for **Prospective Multimodal Data Selection: A
-Stress Test Across Granularity and Learners** by Wei Wu. This directory is
-retained for audit; a standalone Hugging Face release has not yet been
-published.
+Prepared companion metadata for **Before Training, Which Multimodal Data Will
+Help? Resolution Limits Across Granularities and Learners** by Wei Wu. This
+directory is retained for audit; a standalone Hugging Face release has not yet
+been published.
 
 This repository is **not** a redistribution of CMU-MOSI, CMU-MOSEI, CH-SIMS,
 or MELD. It contains only:
@@ -104,7 +104,7 @@ media, transcripts, labels, or per-example embeddings are relicensed here.
 
 ```bibtex
 @misc{wu2026museselect,
-  title = {Prospective Multimodal Data Selection: A Stress Test Across Granularity and Learners},
+  title = {Before Training, Which Multimodal Data Will Help? Resolution Limits Across Granularities and Learners},
   author = {Wu, Wei},
   year = {2026},
   note = {ICLR 2027 submission, author preprint}
