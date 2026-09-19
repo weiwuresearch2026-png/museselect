@@ -1,6 +1,6 @@
 MuSeSelect Aggregate Data License Notice
 
-Copyright (c) 2026 MuSeSelect Authors
+Copyright (c) 2026 Wei Wu
 
 The aggregate result tables, corpus registry, and synthetic schema examples in
 this directory are licensed under the Creative Commons Attribution 4.0
@@ -12,8 +12,9 @@ https://creativecommons.org/licenses/by/4.0/
 Legal code:
 https://creativecommons.org/licenses/by/4.0/legalcode.en
 
-Attribution should identify “MuSeSelect Authors” and the work
-“Stress Testing Prospective Multimodal Dataset Utility Prediction,” and should
+Attribution should identify “Wei Wu” and the work
+“Prospective Multimodal Data Selection: A Stress Test Across Granularity and
+Learners,” and should
 include a link to the public repository where reasonably practicable.
 
 This license applies only to original aggregate material in this directory. It

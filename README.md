@@ -1,7 +1,7 @@
 # MuSeSelect
 
-Official research-preview code for **Stress Testing Prospective Multimodal
-Dataset Utility Prediction** (under review for ICLR 2027).
+Official research-preview code for **Prospective Multimodal Data Selection: A
+Stress Test Across Granularity and Learners** (under review for ICLR 2027).
 
 MuSeSelect asks a deliberately prospective question: can an audio and text source
 be screened for a fixed target task and learner *before* its transfer outcome is
@@ -18,8 +18,8 @@ the private research pipeline, raw corpora, cached embeddings, dataset download
 automation, and unreleased analysis notebooks.
 
 > **Status.** This is a public author preprint and research preview, not a claim
-> of ICLR acceptance. The authors are Yurong Cheng and Wei Wu, Beijing Institute
-> of Technology. Yurong Cheng is the corresponding author.
+> of ICLR acceptance. Wei Wu, Beijing Institute of Technology, is the sole,
+> first, and corresponding author.
 
 ## What is implemented
 
@@ -117,9 +117,9 @@ dataset terms remain controlling for all third-party materials.
 ## Citation
 
 ```bibtex
-@misc{cheng2026museselect,
-  title  = {Stress Testing Prospective Multimodal Dataset Utility Prediction},
-  author = {Yurong Cheng and Wei Wu},
+@misc{wu2026museselect,
+  title  = {Prospective Multimodal Data Selection: A Stress Test Across Granularity and Learners},
+  author = {Wei Wu},
   year   = {2026},
   note   = {ICLR 2027 submission, author preprint}
 }

@@ -32,9 +32,10 @@ configs:
 
 # MuSeSelect paper aggregate artifact
 
-Prepared companion metadata for **Stress Testing Prospective Multimodal Dataset
-Utility Prediction** by Yurong Cheng and Wei Wu. This directory is retained for
-audit; a standalone Hugging Face release has not yet been published.
+Prepared companion metadata for **Prospective Multimodal Data Selection: A
+Stress Test Across Granularity and Learners** by Wei Wu. This directory is
+retained for audit; a standalone Hugging Face release has not yet been
+published.
 
 This repository is **not** a redistribution of CMU-MOSI, CMU-MOSEI, CH-SIMS,
 or MELD. It contains only:
@@ -102,10 +103,10 @@ media, transcripts, labels, or per-example embeddings are relicensed here.
 ## Citation
 
 ```bibtex
-@inproceedings{cheng2027museselect,
-  title = {Stress Testing Prospective Multimodal Dataset Utility Prediction},
-  author = {Cheng, Yurong and Wu, Wei},
-  booktitle = {Submitted to ICLR},
-  year = {2027}
+@misc{wu2026museselect,
+  title = {Prospective Multimodal Data Selection: A Stress Test Across Granularity and Learners},
+  author = {Wu, Wei},
+  year = {2026},
+  note = {ICLR 2027 submission, author preprint}
 }
 ```

@@ -53,23 +53,71 @@ def audit_secrets() -> list[str]:
 
 def audit_results() -> list[str]:
     expected = {
-        ("Logistic regression", "Positive-utility classifier"): (0.00178, 97.8),
-        ("GaussianNB", "Positive-utility classifier"): (-0.03734, 66.7),
-        ("Neural MLP", "Positive-utility classifier"): (0.00755, 80.0),
-        ("Gated fusion", "Positive-utility classifier"): (-0.00027, 53.3),
+        ("Logistic regression", "Positive-utility classifier"): (0.00178, 51.1, 48.9, 0.01727, 97.8),
+        ("Logistic regression", "Curve-19"): (0.00073, 40.0, 60.0, 0.01832, 97.8),
+        ("Logistic regression", "Uniform random"): (0.00077, 43.1, 56.9, 0.01810, 97.8),
+        ("Logistic regression", "Size-only"): (-0.00050, 40.8, 59.2, 0.01937, 97.8),
+        ("GaussianNB", "Positive-utility classifier"): (-0.03734, 0.0, 100.0, 0.02773, 66.7),
+        ("GaussianNB", "Curve-19"): (-0.03744, 0.0, 100.0, 0.02783, 66.7),
+        ("Neural MLP", "Positive-utility classifier"): (0.00755, 73.3, 26.7, 0.01405, 80.0),
+        ("Neural MLP", "Curve-19"): (0.00486, 66.7, 33.3, 0.01674, 80.0),
+        ("Gated fusion", "Positive-utility classifier"): (-0.00027, 46.7, 53.3, 0.02075, 53.3),
+        ("Gated fusion", "Curve-19"): (-0.00413, 26.7, 73.3, 0.02460, 53.3),
     }
     path = ROOT / "huggingface/data/paper_results.csv"
     with path.open(newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle))
     found = {
         (row["learner"], row["rule"]):
-        (float(row["mean_utility"]), float(row["route_accuracy_percent"]))
+        (
+            float(row["mean_utility"]),
+            float(row["positive_rate_percent"]),
+            float(row["harm_rate_percent"]),
+            float(row["top1_regret"]),
+            float(row["route_accuracy_percent"]),
+        )
         for row in rows
     }
     failures = []
     for key, values in expected.items():
         if found.get(key) != values:
             failures.append(f"paper result mismatch for {key}: {found.get(key)} != {values}")
+    return failures
+
+
+def audit_author_metadata() -> list[str]:
+    title = (
+        "Prospective Multimodal Data Selection: A Stress Test Across "
+        "Granularity and Learners"
+    )
+    paths = [
+        ROOT / "LICENSE",
+        ROOT / "README.md",
+        ROOT / "website/index.html",
+        ROOT / "website/paper-code-map.html",
+        ROOT / "huggingface/LICENSE-DATA",
+        ROOT / "huggingface/README.md",
+    ]
+    failures: list[str] = []
+    forbidden = ("Yurong Cheng", "Cheng, Yurong", "cheng2026museselect", "cheng2027museselect")
+    for path in paths:
+        content = path.read_text(encoding="utf-8")
+        if "Wei Wu" not in content and "Wu, Wei" not in content:
+            failures.append(f"missing current author in {path.relative_to(ROOT)}")
+        for stale in forbidden:
+            if stale in content:
+                failures.append(
+                    f"stale author metadata in {path.relative_to(ROOT)}: {stale}"
+                )
+    for path in (
+        ROOT / "README.md",
+        ROOT / "website/index.html",
+        ROOT / "huggingface/LICENSE-DATA",
+        ROOT / "huggingface/README.md",
+    ):
+        normalized = " ".join(path.read_text(encoding="utf-8").split())
+        if title not in normalized:
+            failures.append(f"paper title mismatch in {path.relative_to(ROOT)}")
     return failures
 
 
@@ -155,6 +203,7 @@ def main() -> None:
     args = parser.parse_args()
     failures = (
         audit_secrets()
+        + audit_author_metadata()
         + audit_results()
         + audit_scope()
         + audit_website()
